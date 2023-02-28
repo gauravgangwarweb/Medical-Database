@@ -47,6 +47,3 @@ create table medical_historie_treatments (
     primary key(medical_history_id, treatment_id)
 );
 
--- Add foreign keys for join table
-ALTER TABLE medical_historie_treatments ADD FOREIGN KEY (medical_history_id) REFERENCES medical_histories(id);
-ALTER TABLE medical_historie_treatments ADD FOREIGN KEY (treatment_id) REFERENCES treatments(id);
