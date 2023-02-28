@@ -47,3 +47,15 @@ create table medical_historie_treatments (
     primary key(medical_history_id, treatment_id)
 );
 
+-- Add foreign keys for join table
+ALTER TABLE medical_historie_treatments ADD FOREIGN KEY (medical_history_id) REFERENCES medical_histories(id);
+ALTER TABLE medical_historie_treatments ADD FOREIGN KEY (treatment_id) REFERENCES treatments(id);
+
+-- Add Foreign Keys Indexes
+CREATE INDEX patient_id_asc ON medical_histories(patient_id ASC);
+CREATE INDEX medical_history_id_asc ON invoices(medical_history_id ASC);
+CREATE INDEX invoice_id_asc ON invoice_items(invoice_id ASC);
+CREATE INDEX treatment_id_asc ON invoice_items(treatment_id ASC);
+CREATE INDEX medical_historie_id_asc ON medical_historie_treatments(medical_history_id ASC);
+CREATE INDEX treatments_id_asc ON medical_historie_treatments(treatment_id ASC);
+
